@@ -95,7 +95,7 @@ export const Login = () =>{
       <View style={{flex:1}}>
       <View style={styles.formContainer2}>
      
-          <View>
+          <View style={{borderWidth:1}}>
             <Text   style={{
     fontSize: 36,
     color: 'black',
@@ -106,9 +106,9 @@ export const Login = () =>{
             <View style={{flexDirection:"row",alignItems:"center",marginTop:10}}>
             <Text style={{fontSize:21,color:"black",fontWeight:400}}>+91 987654321 </Text>
 
-            <TouchableOpacity style={{flexDirection:"row",justifyContent:"center",alignItems:"center",marginTop:-5,marginLeft:10}}>
+            <TouchableOpacity style={{flexDirection:"row",justifyContent:"center",alignItems:"center",marginTop:-5,marginLeft:5}}>
          
-           <GradientText fontSize={"18"} text={"Edit"} />
+           <GradientText fontSize={"18"} text={"Edit"} width={"80"}/>
             </TouchableOpacity>
 
                </View>
@@ -136,14 +136,15 @@ export const Login = () =>{
      
         </View>
 
-        <View  style={{borderWidth:1,flexDirection:"row",alignItems:"center",justifyContent:"center",width:"100%"}}> 
-      <Text style={{fontSize:17,color:"black",fontWeight:500,borderWidth:1}}>Didn't receive a code? </Text>
+        <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center",marginTop:10}}>
+            <Text style={{fontSize:16,color:"black",fontWeight:400}}>Didn't receive a code?</Text>
 
-         <TouchableOpacity >
+            <TouchableOpacity style={{flexDirection:"row",justifyContent:"center",alignItems:"center",marginTop:-5,marginLeft:5}}>
          
-           <GradientText fontSize={"18"} text={"Resend"} />
+           <GradientText fontSize={"16"} text={"Resend"}  width={"80"}/>
             </TouchableOpacity>
-      </View>
+
+               </View>
        
       </View>
       <Animated.View style={[styles.imageContainer2, bottomImageStyle]}>
@@ -207,7 +208,7 @@ const styles = StyleSheet.create({
     padding:20,
     width: '100%', // Center the form on the screen
     marginTop:70,
-
+    borderWidth:1
   },
   input: {
     borderBottomWidth: 1,
