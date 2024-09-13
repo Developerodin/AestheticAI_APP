@@ -9,6 +9,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import BootSplash from 'react-native-bootsplash';
 
 import { Home } from './pages/home/Home';
+import { Login } from "./pages/login/Login";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -58,9 +59,15 @@ export default function App() {
    
 <NavigationContainer onReady={() => BootSplash.hide({ fade: true })} >
 
-         <Stack.Navigator initialRouteName={ Auth ? 'Home' : 'Home'}>
+         <Stack.Navigator initialRouteName={ Auth ? 'Login' : 'Login'}>
     
  <Stack.Screen name="Home" component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+<Stack.Screen name="Login" component={Login}
           options={{
             headerShown: false,
           }}
