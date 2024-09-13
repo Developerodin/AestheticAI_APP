@@ -9,6 +9,8 @@ import {
   FlatList,
   Dimensions,
 } from 'react-native';
+import Svg, {  Defs, LinearGradient, Stop,Rect } from 'react-native-svg';
+import { GradientText } from '../../components/GradientText/GradientText';
 
 export const Home = () => {
 
@@ -189,6 +191,17 @@ export const Home = () => {
             </View>
           </View>
           <View style={styles.container2}>
+          <Svg height="100%" width="100%" style={styles.backgroundSvg}>
+        <Defs>
+          <LinearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <Stop offset="30%" stopColor="#18BC9C" stopOpacity="1" />
+            
+            <Stop offset="40%" stopColor="#9bded1" stopOpacity="1" />
+            <Stop offset="60%" stopColor="#ffffff" stopOpacity="1" />
+          </LinearGradient>
+        </Defs>
+        <Rect x="0" y="0" width="100%" height="100%" fill="url(#grad)" />
+      </Svg>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Essential Self Care</Text>
               <Text style={styles.sectionSubtitle}>✨ Just for you</Text>
@@ -232,23 +245,56 @@ export const Home = () => {
             </View>
           </View>
           <View style={styles.container3}>
-      {/* Text Section */}
+      
       <View style={styles.textContainer}>
-        <Text style={styles.textLine1}>We care for you &</Text>
+      <Svg height="25" width="200">
+        <Defs>
+          <LinearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <Stop offset="5%" stopColor="#12c9ab" stopOpacity="1" />
+            <Stop offset="100%" stopColor="#12bab0" stopOpacity="1" />
+          </LinearGradient>
+        </Defs>
+        <Text
+          x="0"
+          y="40"
+          fontSize="24"
+          fontWeight="bold"
+          fill="url(#grad)"
+          style={styles.textLine1}
+        >
+          We care for you &
+        </Text>
+      </Svg>
         <Text style={styles.textLine2}>We've got you covered!</Text>
+        
       </View>
 
      
       <TouchableOpacity style={styles.buttonContainer} onPress={scrollToTop} activeOpacity={0.8}>
-        <View
-          
-          style={styles.gradientButton}
-        >
-         
-          <Image source={require('../../assets/up-arrow-icon.png')} style={styles.icon3} />
-          <Text style={styles.buttonText}>Go to Top</Text>
-        </View>
-      </TouchableOpacity>
+        <View style={styles.svgContainer}>
+      <Svg height="80" width="106">
+  <Defs>
+    <LinearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <Stop offset="25%" stopColor="#12c1ae" stopOpacity="1" />
+      <Stop offset="35%" stopColor="#12aab4" stopOpacity="1" />
+      <Stop offset="100%" stopColor="#1184c0" stopOpacity="1" />
+    </LinearGradient>
+  </Defs>
+  <Rect
+    x="0"
+    y="0"
+    width="106"
+    height="80"
+    fill="url(#grad)"
+    rx="39"
+    ry="39"
+    style={{ borderRadius: 39, }}
+  />
+</Svg>
+      <Image source={require('../../assets/up-arrow-icon.png')} style={styles.icon3} />
+      <Text style={styles.buttonText}>Go to Top</Text>
+      </View>
+    </TouchableOpacity>
     </View>
         </View>
       </ScrollView>
@@ -405,8 +451,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: 40, // Adjust size accordingly
-    height: 40, // Adjust size accordingly
+    width: 40, 
+    height: 40, 
   },
   titleText: {
     fontSize: 20,
@@ -439,7 +485,7 @@ const styles = StyleSheet.create({
   },
   container2: {
     flex: 1,
-    backgroundColor: '#18BC9C', // Adjust the background if needed
+    backgroundColor: '#18BC9C', 
   },
   sectionContainer: {
     padding: 16,
@@ -563,43 +609,66 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 30,
     backgroundColor: '#f7f7f7',
+    marginTop: 20,
 
     
   },
   textContainer: {
-    flex: 1,
+    
+    
+    marginBottom: 20,
   },
   textLine1: {
-    fontSize: 18,
-    color: '#00DEDA',
-    fontWeight: '600',
+    fontSize: 20,
+    
+    fontWeight: '700',
+    color: '#12c9ab',
   },
   textLine2: {
-    fontSize: 18,
-    color: '#0054a6',
-    fontWeight: '600',
+    fontSize: 20,
+    color: '#118abe',
+    fontWeight: '700',
   },
   buttonContainer: {
-    marginLeft: 20,
+    marginLeft: 40,
+   
   },
   gradientButton: {
-    width: 106,
-    height: 80,
-    borderRadius: 39,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#118bbd',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: 39.0,
   },
   icon3: {
-    width: 16,
-    height: 16,
+    width: 20,
+    height: 20,
     marginBottom: 8,
+    position: 'absolute',
+    top: 16,                
+    left: 40,
+    
     
   },
   buttonText: {
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
+    position: 'absolute',
+    top: 40,                
+    left: 20,   
+  },
+  backgroundSvg: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  svgContainer: {
+    position: 'relative',  
+    
   },
 });
 
