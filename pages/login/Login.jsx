@@ -17,9 +17,10 @@ import Animated, {
 } from 'react-native-reanimated';
 import {GradientText} from '../../components/GradientText/GradientText';
 import {OTPInput} from '../../components/Otp/OtpInputs';
-
+import { useNavigation } from "@react-navigation/native";
 const {width, height} = Dimensions.get('window');
 export const Login = () => {
+  const navigation = useNavigation();
   const [step, setStep] = useState(1); // To track the current step in the form (mobile number or OTP)
   const [active, setActive] = useState(true);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
@@ -54,6 +55,7 @@ export const Login = () => {
 
   const handleContinue = () => {
     console.log('Continue Clicked');
+    navigation.navigate("Home");
   };
 
   const handleOtpFill = () => {
