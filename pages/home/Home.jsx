@@ -88,7 +88,7 @@ export const Home = () => {
   return (
     <>
       <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false}>
-        <View style={{backgroundColor: '#fff'}}>
+        <View style={{backgroundColor: '#fff',flex:1}}>
           <View style={styles.container1}>
             <View style={styles.logoContainer}>
               <Image
@@ -175,7 +175,7 @@ export const Home = () => {
                   <TouchableOpacity style={styles.arrowButton1} activeOpacity={0.8}>
                     <Image
                       source={require('../../assets/orders.png')}
-                      style={styles.icon1}
+                      style={styles.iconorder}
                     />
                   </TouchableOpacity>
                   <Text style={styles.iconText1}>My Orders</Text>
@@ -184,7 +184,7 @@ export const Home = () => {
                   <TouchableOpacity style={styles.arrowButton1} activeOpacity={0.8}>
                     <Image
                       source={require('../../assets/medicine.png')}
-                      style={styles.icon1}
+                      style={styles.iconshop}
                     />
                   </TouchableOpacity>
                   <Text style={styles.iconText1}>Shop Medicines</Text>
@@ -193,7 +193,7 @@ export const Home = () => {
                   <TouchableOpacity style={styles.arrowButton1} activeOpacity={0.8}>
                     <Image
                       source={require('../../assets/subscriptions.png')}
-                      style={styles.icon1}
+                      style={styles.iconsub}
                     />
                   </TouchableOpacity>
                   <Text style={styles.iconText1}>My Subscriptions</Text>
@@ -417,7 +417,7 @@ const styles = StyleSheet.create({
     padding: 15,
 
     marginHorizontal: 20,
-    marginVertical: 15,
+    marginVertical: 25,
     textAlign: 'center',
   },
   headerText1: {
@@ -435,18 +435,32 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   icon1: {
-    width: 16,
-    height: 16,
+    width: 22,
+    height: 22,
+  },
+  iconorder: {
+    width: 22,
+    height: 22,
+  },
+  iconshop: {
+    width: 23,
+    height: 23,
+  },
+  iconsub: {
+    width: 22,
+    height: 22,
   },
   iconText1: {
     fontSize: 12,
     textAlign: 'center',
     color: '#000',
+    marginTop: 8,
   },
   arrowButton1: {
     backgroundColor: '#18BC9C',
-    borderRadius: 20,
-    padding: 10,
+    borderRadius: 30,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
   },
   container1: {
     flexDirection: 'row',
@@ -619,8 +633,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 30,
-    backgroundColor: '#f7f7f7',
+    backgroundColor: '#fff',
     marginTop: 20,
+    marginBottom: 100,
 
     
   },

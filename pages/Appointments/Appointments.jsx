@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#f7f7f7',
+    marginBottom: 120,
   },
   headerContainer: {
     flexDirection: 'row',

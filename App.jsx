@@ -14,6 +14,8 @@ import { Notifications } from "./pages/home/Notifications";
 import { Appointments } from "./pages/Appointments/Appointments";
 import { WelcomeScreen } from "./pages/onboarding/WelcomeScreen";
 import { WelcomeScreen2 } from "./pages/onboarding/WelcomeScreen2";
+
+import { Shop } from "./pages/Shop/Shop";
 import Icon from 'react-native-vector-icons/MaterialIcons'; // Replace with your preferred icon package
 import LinearGradient from 'react-native-linear-gradient'; // For gradient icons
 const Stack = createNativeStackNavigator();
@@ -124,12 +126,12 @@ const Tabs = ({navigation}) => {
         })}
       >
         <Tab.Screen name="Home" component={Home}  />
-        <Tab.Screen name="Calendar" component={CalendarScreen} />
+        <Tab.Screen name="Calendar" component={Appointments} />
         
         {/* Center FAB with Icon */}
         <Tab.Screen
           name="CenterButton"
-          component={Home}  // You can use any component for this
+          component={Shop}  // You can use any component for this
           options={{
             tabBarButton: (props) => <CustomTabBarButton {...props} />,
           }}
