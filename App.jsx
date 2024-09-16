@@ -10,6 +10,8 @@ import BootSplash from 'react-native-bootsplash';
 
 import { Home } from './pages/home/Home';
 import { Login } from "./pages/login/Login";
+import { Notifications } from "./pages/home/Notifications";
+import { Appointments } from "./pages/Appointments/Appointments";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -71,7 +73,19 @@ export default function App() {
           options={{
             headerShown: false,
           }}
+        />  
+
+<Stack.Screen name="Notifications" component={Notifications}
+          options={{
+            headerShown: false,
+          }}
         />
+
+<Stack.Screen name="Appointments" component={Appointments}
+          options={{
+            headerShown: false,
+          }}
+        />        
 
       </Stack.Navigator>
 

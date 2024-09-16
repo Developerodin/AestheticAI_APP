@@ -11,14 +11,24 @@ import {
 } from 'react-native';
 import Svg, {  Defs, LinearGradient, Stop,Rect } from 'react-native-svg';
 import { GradientText } from '../../components/GradientText/GradientText';
+import { useNavigation } from "@react-navigation/native";
 
 export const Home = () => {
+  const navigation = useNavigation();
 
   const scrollViewRef = useRef();
 
   const scrollToTop = () => {
     scrollViewRef.current.scrollTo({ y: 0, animated: true });
   };
+
+  const handleChatPress = () => {
+    navigation.navigate('Notifications');
+  }
+
+  const handleAppointmentPress = () => {
+    navigation.navigate('Appointments');
+  }
 
   const selfCareData = [
     {
@@ -78,7 +88,7 @@ export const Home = () => {
   return (
     <>
       <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false}>
-        <View style={{backgroundColor: '#fff',marginBottom:50}}>
+        <View style={{backgroundColor: '#fff'}}>
           <View style={styles.container1}>
             <View style={styles.logoContainer}>
               <Image
@@ -89,17 +99,18 @@ export const Home = () => {
               <Text style={styles.titleText}>Aesthetics AI</Text>
             </View>
 
-            <View style={styles.chatIconContainer}>
+            <TouchableOpacity style={styles.chatIconContainer} onPress={handleChatPress} activeOpacity={0.8}>
               <Image
                 source={require('../../assets/chat-icon.png')}
                 style={styles.chatIcon}
                 resizeMode="contain"
+                onPress={handleChatPress}
               />
 
               <View style={styles.notificationBadge}>
                 <Text style={styles.notificationText}>2</Text>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
           <View style={styles.container}>
             <View style={styles.backgroundCard}></View>
@@ -107,7 +118,7 @@ export const Home = () => {
             <View style={styles.card}>
               <View style={styles.headerContainer}>
                 <Text style={styles.headerText}>Upcoming Appointments</Text>
-                <TouchableOpacity style={styles.arrowButton} activeOpacity={0.8}>
+                <TouchableOpacity style={styles.arrowButton} activeOpacity={0.8} onPress={handleAppointmentPress}>
                   <Image
                     source={require('../../assets/arrow.png')}
                     style={styles.icon}
