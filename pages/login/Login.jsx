@@ -55,7 +55,7 @@ export const Login = () => {
 
   const handleContinue = () => {
     console.log('Continue Clicked');
-    navigation.navigate("Home");
+    navigation.navigate("WelcomeScreen");
   };
 
   const handleOtpFill = () => {
