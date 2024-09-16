@@ -77,7 +77,7 @@ function CustomTabBarButton({ onPress }) {
         {/* Shopping bag icon with -45 degrees rotation */}
         <Icon 
           name="shopping-bag" 
-          size={28} 
+          size={24} 
           color="#fff" 
           style={{ transform: [{ rotate: '-45deg' }] }} 
         />
@@ -106,7 +106,7 @@ const Tabs = ({navigation}) => {
               iconName = 'person';
             }
 
-            return <Icon name={iconName} size={28} color={focused ? '#18BC9C' : '#666'} />;
+            return <Icon name={iconName} size={24} color={focused ? '#18BC9C' : '#666'} />;
           },
           tabBarShowLabel: false, // Hide tab labels
           tabBarStyle: {
@@ -117,7 +117,7 @@ const Tabs = ({navigation}) => {
             elevation: 0,
             backgroundColor: '#fff',
             borderRadius: 15,
-            height: 90,
+            height: 70,
             ...styles.shadow,
           },
           headerShown: false
@@ -235,25 +235,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   fabContainer: {
-    top: -40, // Move the FAB icon above the tab bar
+    top: -35, // Move the FAB icon above the tab bar
     justifyContent: 'center',
     alignItems: 'center',
   },
   hexagon: {
-    width: 60,
-    height: 70,
+    width: 50,
+    height: 60,
     backgroundColor: 'transparent',
   },
   hexagonInner: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     backgroundColor: '#00d2ff', // Use gradient or solid color
     justifyContent: 'center',
     alignItems: 'center',
     transform: [
       { rotate: '45deg' }, // Creating the diamond shape like your image
     ],
-    borderRadius: 15, // Optional if you want to soften the edges
+    borderRadius: 12, // Optional if you want to soften the edges
   },
   shadow: {
     shadowColor: '#000',
