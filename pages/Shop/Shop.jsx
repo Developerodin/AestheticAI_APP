@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet, TextInput ,ScrollView } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet, TextInput ,ScrollView , Dimensions ,ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+const { width, height } = Dimensions.get('window');
+import { useNavigation } from "@react-navigation/native";
 
 const products = [
   {
@@ -54,13 +56,19 @@ const products = [
     price: '₹499',
     originalPrice: '₹1000',
     discount: '50% off',
-    image: require('../../assets/serum4.png'), // replace with your image path
+    image: require('../../assets/serum4.png'), 
     isBestseller: false,
   },
   
 ];
 
 export const Shop = () => {
+  const navigation = useNavigation();
+
+
+  const handleCart = () => {
+    navigation.navigate('Cart');
+  };
   const renderItem = ({ item }) => (
     <View style={styles.productCard}>
    
@@ -79,7 +87,145 @@ export const Shop = () => {
   return (
     <>
     <ScrollView showsVerticalScrollIndicator={false}>
-    
+    <View style={{ position: 'relative' }}>
+          <ImageBackground
+            source={require('../../assets/shopBanner.png')}
+            style={{ width: '100%',height: height * 0.7 }} 
+          >
+            <TouchableOpacity
+              style={{
+                position: 'absolute',
+                top: height * 0.05,
+                right: width * 0.05,
+                backgroundColor: '#fff',
+                padding: 10,
+                borderRadius: 20,
+                
+              }}
+              onPress={handleCart}
+            >
+              <Icon name="shopping-bag" size={24} color="#000" />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{
+                position: 'absolute',
+                bottom: height * 0.12, 
+                left: width * 0.17, 
+                borderRadius: 30,
+                borderWidth: 0.5,
+                borderColor: '#fff',
+                paddingHorizontal: 80,
+                paddingVertical: 20,
+              }}
+            >
+              <Text style={{ color: '#fff' }}>View Prescriptions</Text>
+            </TouchableOpacity>
+            
+          </ImageBackground>
+          <View
+      style={{
+        marginTop: -80,
+        
+        padding: 20,
+        backgroundColor: '#fff',
+        borderRadius: 40,
+      }}
+    >
+      <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 8 ,color:'#000'}}>
+        Your #goto<Text style={{ color: '#1AA7EC' }}>order</Text>
+      </Text>
+      <Text style={{ fontSize: 14, color: '#000' }}>
+        We are getting to know your <Text style={{ color: '#1AA7EC' }}>Order!</Text>
+      </Text>
+
+      <View
+        style={{
+          marginVertical: 15,
+      
+          backgroundColor: '#fff',
+          borderRadius: 20,
+          paddingHorizontal: 20,
+          paddingVertical: 15,
+          
+          position: 'relative',
+        }}
+      >
+        <Image
+          source={require('../../assets/product.png')} 
+          style={{
+            width: 133,
+            height: 133,
+            borderRadius: 20,
+            position: 'absolute',
+            top: 15,
+            left: 5,
+          }}
+        />
+
+        <View style={{ marginLeft: 140 }}>
+          <Text style={{ fontSize: 16, fontWeight: 'bold' ,color:'#000' }}>Niny Sunscreen 50</Text>
+          <Text style={{ fontSize: 14 ,color:'#000',fontWeight: 'bold'}}>100 ml</Text>
+          <Text style={{ fontSize: 14, color: '#1AA7EC' }}>20% off on this purchase*</Text>
+
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginTop: 10,
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                backgroundColor: '#000',
+                borderRadius: 30,
+                paddingVertical: 10,
+                paddingHorizontal: 20,
+                marginRight: 10,
+              }}
+            >
+              <Text style={{ color: '#fff' }}>Buy Now</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 18,
+                borderWidth: 1,
+                borderColor: '#000',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Icon name="add" size={24} color="#000" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+
+      {/* Pagination Section */}
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginTop: 20,
+          width: '100%',
+        }}
+      >
+        <TouchableOpacity>
+          <Icon name="chevron-left" size={32} color="#000" />
+        </TouchableOpacity>
+
+        <Text style={{ fontSize: 16 }}>1/2</Text>
+
+        <TouchableOpacity>
+          <Icon name="chevron-right" size={32} color="#000" />
+        </TouchableOpacity>
+      </View>
+    </View>
+        </View>
     <View style={styles.container}>
       {/* Header Section */}
       <View style={styles.header}>
@@ -128,9 +274,9 @@ export const Shop = () => {
       />
 
       {/* Explore Collection Button */}
-      {/* <TouchableOpacity style={styles.exploreButton}>
+      <TouchableOpacity style={styles.exploreButton}>
         <Text style={styles.exploreText}>Explore Collection</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
     </View>
     </ScrollView>
     </>
@@ -142,7 +288,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     backgroundColor: '#fff',
-    paddingBottom: 120,
+    paddingBottom: 150,
   },
   header: {
     flexDirection: 'row',
@@ -257,14 +403,15 @@ const styles = StyleSheet.create({
 
   },
   exploreButton: {
-    backgroundColor: '#000',
-    padding: 15,
-    borderRadius: 50,
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius:45 ,
     alignItems: 'center',
     marginTop: 20,
+    borderWidth: 1,
   },
   exploreText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 16,
   },
 });

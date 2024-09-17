@@ -15,7 +15,9 @@ import { Appointments } from "./pages/Appointments/Appointments";
 import { WelcomeScreen } from "./pages/onboarding/WelcomeScreen";
 import { WelcomeScreen2 } from "./pages/onboarding/WelcomeScreen2";
 
+
 import { Shop } from "./pages/Shop/Shop";
+import { Cart } from "./pages/Shop/Cart";
 import Icon from 'react-native-vector-icons/MaterialIcons'; // Replace with your preferred icon package
 import LinearGradient from 'react-native-linear-gradient'; // For gradient icons
 const Stack = createNativeStackNavigator();
@@ -193,6 +195,21 @@ export default function App() {
         />
 
 <Stack.Screen name="WelcomeScreen2" component={WelcomeScreen2}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+
+
+
+<Stack.Screen name="Shop" component={Shop}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+<Stack.Screen name="Cart" component={Cart}
           options={{
             headerShown: false,
           }}
