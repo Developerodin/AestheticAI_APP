@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 import { Image, StyleSheet, Text, View,TouchableOpacity } from 'react-native'
-
+import FastImage from 'react-native-fast-image';
 export const WelcomeScreen2 = () => {
     const navigation = useNavigation();
     const handelNext = ()=>{
@@ -17,10 +17,11 @@ export const WelcomeScreen2 = () => {
 
 
     <View style={{height:400,flexDirection:"row",justifyContent:"center",alignItems:"center"}}>
-    <Image
-                source={require('../../assets/images/onboarding2.png')}
-                
-              />
+    <FastImage
+        style={styles.gifImage}
+        source={require('../../assets/images/onboarding2.gif')}
+        resizeMode={FastImage.resizeMode.contain}
+      />
     </View>
    
 <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",padding:30,position:"absolute",bottom:10,width:"100%"}}>
@@ -49,6 +50,10 @@ const styles = StyleSheet.create({
       },
     image:{
       width:'100%'
+    },
+    gifImage: {
+      width: 400,  // Adjust the width and height according to your need
+      height: 400,
     },
     text:{
         fontSize:24,

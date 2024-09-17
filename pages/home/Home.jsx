@@ -12,7 +12,10 @@ import {
 import Svg, {  Defs, LinearGradient, Stop,Rect } from 'react-native-svg';
 import { GradientText } from '../../components/GradientText/GradientText';
 import { useNavigation } from "@react-navigation/native";
-
+import Qc1 from '../../assets/Svgs/quicka4.svg'
+import Qc2 from '../../assets/Svgs/quicka.svg'
+import Qc3 from '../../assets/Svgs/quicka2.svg'
+import Qc4 from '../../assets/Svgs/quicka3.svg'
 export const Home = () => {
   const navigation = useNavigation();
 
@@ -164,37 +167,25 @@ export const Home = () => {
               <View style={styles.iconContainer1}>
                 <View style={styles.iconBlock1}>
                   <TouchableOpacity style={styles.arrowButton1} activeOpacity={0.8}>
-                    <Image
-                      source={require('../../assets/schedule.png')}
-                      style={styles.icon1}
-                    />
+                  <Qc1 width={20} height={20} />
                   </TouchableOpacity>
                   <Text style={styles.iconText1}>Schedule an appointment</Text>
                 </View>
                 <View style={styles.iconBlock1}>
                   <TouchableOpacity style={styles.arrowButton1} activeOpacity={0.8}>
-                    <Image
-                      source={require('../../assets/orders.png')}
-                      style={styles.iconorder}
-                    />
+                  <Qc2 width={20} height={20} />
                   </TouchableOpacity>
                   <Text style={styles.iconText1}>My Orders</Text>
                 </View>
                 <View style={styles.iconBlock1}>
                   <TouchableOpacity style={styles.arrowButton1} activeOpacity={0.8}>
-                    <Image
-                      source={require('../../assets/medicine.png')}
-                      style={styles.iconshop}
-                    />
+                  <Qc3 width={20} height={20} />
                   </TouchableOpacity>
                   <Text style={styles.iconText1}>Shop Medicines</Text>
                 </View>
                 <View style={styles.iconBlock1}>
                   <TouchableOpacity style={styles.arrowButton1} activeOpacity={0.8}>
-                    <Image
-                      source={require('../../assets/subscriptions.png')}
-                      style={styles.iconsub}
-                    />
+                  <Qc4 width={20} height={20} />
                   </TouchableOpacity>
                   <Text style={styles.iconText1}>My Subscriptions</Text>
                 </View>
