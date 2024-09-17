@@ -53,7 +53,7 @@ function CalendarScreen() {
 function VideoScreen() {
   return (
     <View style={styles.screen}>
-      <Text>Video Screen</Text>
+      <Text>Comming Soon</Text>
     </View>
   );
 }
@@ -61,7 +61,7 @@ function VideoScreen() {
 function ProfileScreen() {
   return (
     <View style={styles.screen}>
-      <Text>Profile Screen</Text>
+      <Text>Comming Soon</Text>
     </View>
   );
 }
