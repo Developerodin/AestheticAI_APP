@@ -259,7 +259,10 @@ export const Cart = () => {
 </View>
 
 
-<View style={{marginTop:30,marginBottom:50}}>
+
+      
+    </View>
+    <View style={{marginTop:30,marginBottom:10}}>
 <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView style={styles.container}>
         <PaymentSlider />
@@ -267,8 +270,6 @@ export const Cart = () => {
     </GestureHandlerRootView>
 
 </View>
-      
-    </View>
     </ScrollView>
   );
 };
@@ -308,6 +309,7 @@ const styles = StyleSheet.create({
     padding: 8,
     marginBottom: 20,
     borderWidth: 1,
+    borderColor:'#18BC9C'
   },
   offerIcon: {
     marginRight: 10,

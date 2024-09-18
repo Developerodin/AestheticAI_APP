@@ -103,7 +103,7 @@ const PaymentSlider = ({ disableScroll }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width:'100%',
     padding: 20,
     
   },
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   sliderTrack: {
     width:'100%',
-    height: 90,
+    height:75,
     borderRadius: 100,
     backgroundColor: '#D1F2EB',
     justifyContent: 'center',
@@ -145,8 +145,8 @@ const styles = StyleSheet.create({
     marginTop:30
   },
   sliderButton: {
-    width: 70,
-    height: 70,
+    width:60,
+    height: 60,
     borderRadius: 100,
     backgroundColor: '#18BC9C',
     position: 'absolute',
