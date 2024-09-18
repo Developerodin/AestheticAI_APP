@@ -1,26 +1,20 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image, TextInput } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const AppointmentsDetails = () => {
+const RescheduleAppointment = () => {
   const navigation = useNavigation();
   const doctorImage = require('../../assets/doctorImage.png');  
   const timeIcon = require('../../assets/clock.png');        
   const locationIcon = require('../../assets/location.png');
-
+  const [date, setDate] = useState('10 Aug 2024'); // Static date for now
   const handleBack = () => {
     console.log('Back Pressed');
     navigation.goBack();
     
     };
-
-    const handleRescheduleAppointment= () => {
-      console.log('Reschedule Appointment');
-      navigation.navigate('Reschedule Appointment');
-      
-      }; 
   return (
     <ScrollView style={styles.container}>
       <View style={styles2.headerContainer}>
@@ -31,7 +25,7 @@ const AppointmentsDetails = () => {
           />
         </TouchableOpacity>
 
-        <Text style={styles2.headerText}>Appointments</Text>
+        <Text style={styles2.headerText}>Reschedule Appointments</Text>
         <TouchableOpacity style={styles2.calendarButton}>
           
         </TouchableOpacity>
@@ -50,48 +44,24 @@ const AppointmentsDetails = () => {
           </View>
         </View>
 
-        <View style={styles.appointmentDetails}>
-          <View style={[styles.row,{marginLeft:20}]}>
-            <Icon name="time-outline" size={20} color={'black'} />
-            <Text style={styles.detailText}>9:30 - 10:30</Text>
-          </View>
-          <View style={[styles.row,{marginLeft:30}]}>
-            <Icon name="location-outline" size={20} color={'black'} />
-            <Text style={styles.detailText}>Online</Text>
-          </View>
+        <View style={{marginTop:20}}>
+      <Text style={{fontSize:16,fontWeight:'400',color:'black'}}>Choose Date and Time (Doctor's availability)</Text>
+      <TouchableOpacity style={styles.inputContainer}>
+        <Text style={{color:"black",fontSize:14}}>{date}</Text>
+        <Icon name="calendar" style={styles.icon} />
+      </TouchableOpacity>
+      </View>
 
-          
-        </View>
+      <View style={{marginTop:20}}>
+      <Text style={{fontSize:16,fontWeight:'400',color:'black'}}>Reason for Rescheduling</Text>
+        <TextInput placeholder='Type something ...'/>
+      </View>
 
-        <View>
-        <Text style={styles.description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-          </Text>
-
-          <TouchableOpacity style={styles.detailsButton}>
-            <Text style={styles.detailsButtonText}>Details</Text>
+        <View style={[styles.actions,{marginTop:190}]}>
+          <TouchableOpacity style={styles.rescheduleButton}>
+            <Text style={styles.rescheduleButtonText}>Submit</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity style={styles.detailsButton}>
-            <Text style={styles.detailsButtonText}>Details</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.detailsButton}>
-            <Text style={styles.detailsButtonText}>Details</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.detailsButton}>
-            <Text style={styles.detailsButtonText}>Details</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.actions}>
-          <TouchableOpacity onPress={handleRescheduleAppointment} style={styles.rescheduleButton}>
-            <Text style={styles.rescheduleButtonText}>Reschedule</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.cancelButton}>
-            <Text style={styles.cancelButtonText}>Cancel</Text>
-          </TouchableOpacity>
+         
         </View>
       </View>
     </ScrollView>
@@ -117,10 +87,24 @@ const styles = StyleSheet.create({
   detailsButton: { marginTop: 10 },
   detailsButtonText: { color: 'black' },
   actions: { flexDirection: 'row',justifyContent:"space-between", marginTop: 20 },
-  rescheduleButton: { padding: 30,width:220, backgroundColor: '#fff', borderRadius: 50 ,borderWidth:1,flexDirection:"row",justifyContent:"center",alignItems:"center"},
+  rescheduleButton: { padding: 30,width:'100%', backgroundColor: '#fff', borderRadius: 50 ,borderWidth:1,flexDirection:"row",justifyContent:"center",alignItems:"center"},
   rescheduleButtonText: { color: 'black',fontSize:20 },
   cancelButton:{ padding: 30, backgroundColor: '#EE5B5B', borderRadius: 40,width:130,flexDirection:"row",justifyContent:"center",alignItems:"center"},
   cancelButtonText: { color: '#fff',fontSize:20 },
+  inputContainer: {
+
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+
+  },
+  icon: {
+    fontSize: 24,
+    color: '#333',
+  },
 });
 
 const styles2 = StyleSheet.create({
@@ -174,5 +158,5 @@ const styles2 = StyleSheet.create({
   },
 });
 
-export default AppointmentsDetails;
+export default RescheduleAppointment;
 
