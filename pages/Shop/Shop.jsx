@@ -3,6 +3,10 @@ import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet, TextInput ,S
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const { width, height } = Dimensions.get('window');
 import { useNavigation } from "@react-navigation/native";
+import Cart from '../../assets/Svgs/Cart.svg';
+import TiltArrow from '../../assets/Svgs/TiltArrow.svg';
+import Back from '../../assets/Svgs/BackWhite.svg';
+import Forward from '../../assets/Svgs/ForwardWhite.svg';
 
 const products = [
   {
@@ -106,14 +110,14 @@ export const Shop = () => {
                 position: 'absolute',
                 top: height * 0.05,
                 right: width * 0.05,
-                backgroundColor: '#fff',
+                
                 padding: 10,
-                borderRadius: 20,
+                
                 
               }}
               onPress={handleCart}
             >
-              <Icon name="shopping-bag" size={24} color="#000" />
+              <Cart height={27} width={27}/>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -139,7 +143,8 @@ export const Shop = () => {
         
         padding: 20,
         backgroundColor: '#fff',
-        borderRadius: 40,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
       }}
     >
       <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 8 ,color:'#000'}}>
@@ -224,14 +229,14 @@ export const Shop = () => {
           width: '100%',
         }}
       >
-        <TouchableOpacity>
-          <Icon name="chevron-left" size={32} color="#000" />
+        <TouchableOpacity style={{backgroundColor:'#000',borderRadius: 30,borderWidth:1,padding:15}}>
+          <Back height={20} width={20} />
         </TouchableOpacity>
 
-        <Text style={{ fontSize: 16 }}>1/2</Text>
+        <Text style={{ fontSize: 16,color:'#000' }}>1/2</Text>
 
-        <TouchableOpacity>
-          <Icon name="chevron-right" size={32} color="#000" />
+        <TouchableOpacity style={{backgroundColor:'#000',borderRadius: 30,borderWidth:1,padding:15}}>
+          <Forward height={20} width={20} />
         </TouchableOpacity>
       </View>
     </View>
@@ -240,8 +245,8 @@ export const Shop = () => {
       {/* Header Section */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Shop your needs.</Text>
-         <TouchableOpacity style={{backgroundColor:'#fff',borderRadius: 30,borderWidth:1,padding:8}} onPress={handleMarketplace}>
-          <Icon name="arrow-forward" size={24} color="#000" />
+         <TouchableOpacity style={{backgroundColor:'#fff',borderRadius: 30,borderWidth:1,padding:15}} onPress={handleMarketplace}>
+          <TiltArrow height={16} width={16} />
         </TouchableOpacity> 
       </View>
 
@@ -318,7 +323,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 26,
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingVertical: 2,
     marginBottom: 20,
     borderWidth: 1,
   },

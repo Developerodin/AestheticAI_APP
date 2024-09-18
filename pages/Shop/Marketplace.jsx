@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity ,ScrollView ,Image, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from "@react-navigation/native";
+import Back from '../../assets/Svgs/BackIcon.svg';
 
 
 const products = [
@@ -143,8 +144,8 @@ export const Marketplace = () => {
     <View style={styles.container}>
       {/* Header Section */}
       <View style={styles.header}>
-        <TouchableOpacity style={{backgroundColor:'#fff',borderRadius: 30,borderWidth:1,padding:8}} onPress={handleBack}>
-        <Icon name="arrow-back" size={24} color="#000" />
+        <TouchableOpacity style={{backgroundColor:'#fff',borderRadius: 30,borderWidth:1,padding:10}} onPress={handleBack}>
+        <Back height={20} width={20} />
         </TouchableOpacity>
         
 
@@ -227,7 +228,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 26,
         paddingHorizontal: 12,
-        paddingVertical: 10,
+        paddingVertical: 2,
         marginBottom: 20,
         borderWidth: 1,
       },
