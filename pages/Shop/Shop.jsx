@@ -69,6 +69,15 @@ export const Shop = () => {
   const handleCart = () => {
     navigation.navigate('Cart');
   };
+
+
+  const handleMarketplace = () => {
+    navigation.navigate('Marketplace');
+  };
+
+  const handlePrescriptions = () => {
+    navigation.navigate('Prescriptions');
+  };
   const renderItem = ({ item }) => (
     <View style={styles.productCard}>
    
@@ -118,6 +127,7 @@ export const Shop = () => {
                 paddingHorizontal: 80,
                 paddingVertical: 20,
               }}
+              onPress={handlePrescriptions}
             >
               <Text style={{ color: '#fff' }}>View Prescriptions</Text>
             </TouchableOpacity>
@@ -230,9 +240,9 @@ export const Shop = () => {
       {/* Header Section */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Shop your needs.</Text>
-        {/* <TouchableOpacity>
+         <TouchableOpacity style={{backgroundColor:'#fff',borderRadius: 30,borderWidth:1,padding:8}} onPress={handleMarketplace}>
           <Icon name="arrow-forward" size={24} color="#000" />
-        </TouchableOpacity> */}
+        </TouchableOpacity> 
       </View>
 
       
@@ -295,6 +305,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginVertical: 20,
+    marginHorizontal: 15,
   },
   headerTitle: {
     fontSize: 24,

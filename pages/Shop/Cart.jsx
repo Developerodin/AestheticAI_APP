@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Image, StyleSheet ,ImageBackground ,Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from "@react-navigation/native";
+const { width, height } = Dimensions.get('window');
 
 export const Cart = () => {
   const navigation = useNavigation();
@@ -47,7 +48,7 @@ export const Cart = () => {
   ];
 
   return (
-    <ScrollView showsHorizontalScrollIndicator={false}>
+    <ScrollView showsVerticalScrollIndicator={false}>
         
         <View style={styles.headerContainer}>
         <TouchableOpacity style={styles.backButton}  onPress={handleBack} activeOpacity={0.8}>
@@ -173,7 +174,75 @@ export const Cart = () => {
     </View>
   ))}
 </ScrollView> */}
-     <Image source={require('../../assets/cartBanner.png')}  />
+
+    </View>
+    <View style={{ flex: 1 }}>
+      <ImageBackground
+        source={require('../../assets/cartBanner.png')}
+        style={{ width: '100%', height: height * 0.35,  }} // Center content
+      >
+        <Text style={{ color: '#fff', fontSize: 30, fontWeight: 'bold',textAlign:'center',marginTop:20 }}>Subscribe to this cart.</Text>
+        <Text style={{ color: '#fff', fontSize: 16, marginTop: 10 ,textAlign:'center'}}>Get <Text style={{fontSize: 24}}>20%</Text> off every order</Text>
+        <Text style={{ color: '#fff', fontSize: 16,textAlign:'center' }}>with subscription.</Text>
+        <TouchableOpacity
+          style={{
+            backgroundColor: '#000',
+            padding: 30,
+            borderRadius: 45,
+            position: 'absolute',
+            bottom: '15%', // Center vertically
+            left: '25%', // Center horizontally
+            paddingHorizontal: 60,
+            
+          }}
+        >
+          <Text style={{ color: '#fff',fontSize: 20 }}>Subscribe</Text>
+        </TouchableOpacity>
+      </ImageBackground>
+    </View>
+    <View style={styles.billcontainer}>
+      <Text style={styles.billheaderText}>Bill Details</Text>
+
+      <View style={styles.billContainer}>
+        <View style={styles.billRow}>
+          <Text style={styles.label}>MRP Total</Text>
+          <Text style={styles.value}>₹2000</Text>
+        </View>
+
+        <View style={styles.billRow}>
+          <Text style={styles.label}>Item Savings</Text>
+          <Text style={styles.savingValue}>-₹1000</Text>
+        </View>
+
+        <View style={styles.billRow}>
+          <Text style={styles.label}>Handling Fee</Text>
+          <Text style={styles.value}>₹130</Text>
+        </View>
+
+        <View style={styles.separator} />
+
+        <View style={styles.billRow}>
+          <Text style={styles.label}>Delivery Fee</Text>
+          <Text style={styles.freeValue}>₹150 <Text style={styles.freeText}>FREE</Text></Text>
+        </View>
+         
+        <View style={styles.separator} />
+        <View style={styles.billRow}>
+          <Text style={styles.toPayText}>To Pay</Text>
+          <Text style={styles.toPayValue}>₹1130</Text>
+        </View>
+
+       
+      </View>
+      <View style={{paddingLeft:20}}>
+      <Text style={styles.noteText}>Check your order to avoid cancellation</Text>
+
+<TouchableOpacity>
+  <Text style={styles.cancellationPolicyText}>Read Cancellation Policy</Text>
+</TouchableOpacity>
+</View>
+
+      
     </View>
     </ScrollView>
   );
@@ -370,6 +439,82 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     padding: 5,
     alignSelf: 'flex-end',
+  },
+  billcontainer: {
+    padding: 16,
+    backgroundColor: '#f7f7f7',
+  },
+  billheaderText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    paddingLeft: 16,
+    color: '#000',
+    marginTop: 20,
+  },
+  billContainer: {
+    backgroundColor: '#ffffff',
+    borderRadius: 27,
+    padding: 20,
+    
+  },
+  billRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 8,
+  },
+  label: {
+    fontSize: 16,
+    color: '#676767',
+  },
+  value: {
+    fontSize: 16,
+    color: '#676767',
+  },
+  savingValue: {
+    fontSize: 16,
+    color: '#18bc9c',
+  },
+  freeValue: {
+    fontSize: 16,
+    color: '#333',
+    textDecorationLine:'line-through',
+  },
+  freeText: {
+    color: '#18bc9c',
+    fontWeight: 'bold',
+    textDecorationLine:'none',
+  },
+  toPayText: {
+    fontSize: 18,
+    
+    color:'#676767'
+  },
+  toPayValue: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  separator: {
+    borderBottomColor: '#E0E0E0',
+    borderBottomWidth: 2,
+    marginVertical: 8,
+    borderStyle: 'dashed',
+  },
+  noteText: {
+    marginTop: 16,
+    fontSize: 18,
+    color: '#000',
+    fontWeight: 'bold',
+
+
+  },
+  cancellationPolicyText: {
+    marginTop: 8,
+    fontSize: 14,
+    color: '#1185C0',
+    textDecorationLine: 'underline',
+    
   },
 });
 
