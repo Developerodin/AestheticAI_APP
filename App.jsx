@@ -22,6 +22,10 @@ import { Marketplace } from "./pages/Shop/Marketplace";
 import { Prescriptions } from "./pages/Shop/Prescriptions";
 import Icon from 'react-native-vector-icons/MaterialIcons'; // Replace with your preferred icon package
 import LinearGradient from 'react-native-linear-gradient'; // For gradient icons
+import AppointmentsDetails from "./pages/Appointments/AppointmentsDetails";
+import { BookAppointment } from "./pages/Appointments/BookAppointment";
+import RescheduleAppointment from "./pages/Appointments/RescheduleAppointment";
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -187,7 +191,25 @@ export default function App() {
           options={{
             headerShown: false,
           }}
-        />        
+        />   
+
+        <Stack.Screen name="Appointments Details" component={AppointmentsDetails}
+          options={{
+            headerShown: false,
+          }}
+        />      
+
+<Stack.Screen name="Book Appointment" component={BookAppointment}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+<Stack.Screen name="Reschedule Appointment" component={RescheduleAppointment}
+          options={{
+            headerShown: false,
+          }}
+        />
 
         
 <Stack.Screen name="WelcomeScreen" component={WelcomeScreen}

@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const AppointmentCard = ({ doctorImage, doctorName, specialization, time, location, day, date, timeIcon, locationIcon }) => {
+const AppointmentCard = ({ doctorImage, doctorName, specialization, time, location, day, date, timeIcon, locationIcon,onPress }) => {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity onPress={onPress} style={styles.card}>
       <View style={styles.leftSection}>
         <Image source={doctorImage} style={styles.doctorImage} />
         <View style={styles.doctorInfo}>
@@ -21,7 +21,7 @@ const AppointmentCard = ({ doctorImage, doctorName, specialization, time, locati
         <Text style={styles.day}>{day}</Text>
         <Text style={styles.date}>{date}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

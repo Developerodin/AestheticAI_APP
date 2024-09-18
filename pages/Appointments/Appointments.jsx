@@ -3,7 +3,7 @@ import { View, Text, StyleSheet,TouchableOpacity,Image ,ScrollView } from 'react
 import { useNavigation } from "@react-navigation/native";
 import AppointmentCard from '../../components/Cards/AppointmentCard';
 import AppointmentCard2  from '../../components/Cards/AppointmentCard2';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 export const Appointments = () => {
 
     const doctorImage = require('../../assets/doctorImage.png');  
@@ -18,6 +18,14 @@ export const Appointments = () => {
         
         };
 
+    const handleClick = ()=>{
+      navigation.navigate('Appointments Details')
+      }
+
+      const handleBookAppointmentsClick = ()=>{
+        navigation.navigate('Book Appointment')
+        }
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.container}>
@@ -30,7 +38,7 @@ export const Appointments = () => {
         </TouchableOpacity>
 
         <Text style={styles.headerText}>Appointments</Text>
-        <TouchableOpacity style={styles.calendarButton}>
+        <TouchableOpacity onPress={handleBookAppointmentsClick} style={styles.calendarButton}>
           <Image
             source={require('../../assets/calendar.png')}
             style={styles.calendarIcon}
@@ -48,6 +56,7 @@ export const Appointments = () => {
         date="2"
         timeIcon={timeIcon}
         locationIcon={locationIcon}
+        onPress={handleClick}
       />
         <AppointmentCard
             doctorImage={doctorImage}
@@ -59,6 +68,7 @@ export const Appointments = () => {
             date="2"
             timeIcon={timeIcon}
             locationIcon={locationIcon}
+            onPress={handleClick}
         />
         <AppointmentCard
             doctorImage={doctorImage}
@@ -70,6 +80,7 @@ export const Appointments = () => {
             date="2"
             timeIcon={timeIcon}
             locationIcon={locationIcon}
+            onPress={handleClick}
         />
         <Text style={{marginVertical:25,fontSize:18,color:'#000'}}>Post Appointments</Text>
         <AppointmentCard2
@@ -78,6 +89,7 @@ export const Appointments = () => {
             specialization="Dermatologist"
             day="Sat"
             date="2"
+            onPress={handleClick}
         />
         <AppointmentCard2
             doctorImage={doctorImage}
@@ -85,6 +97,7 @@ export const Appointments = () => {
             specialization="Dermatologist"
             day="Sat"
             date="2"
+            onPress={handleClick}
         />
         <AppointmentCard2
             doctorImage={doctorImage}
@@ -92,7 +105,20 @@ export const Appointments = () => {
             specialization="Dermatologist"
             day="Sat"
             date="2" 
+            onPress={handleClick}
         />
+
+
+<View style={styles2.container}>
+  <View>
+  <Text style={styles2.text}>Book a new</Text>
+  <Text style={styles2.text}>Appointment</Text>
+  </View>
+      
+      <TouchableOpacity onPress={handleBookAppointmentsClick} style={styles2.button}>
+        <Icon name="add" size={24} color="#fff" />
+      </TouchableOpacity>
+    </View>
     </View>
     </ScrollView>
   );
@@ -143,3 +169,29 @@ const styles = StyleSheet.create({
   },
 });
 
+const styles2 = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#00b59c', // Similar green background color
+    padding: 25,
+    borderRadius: 100, // Rounded corners
+    justifyContent: 'space-between',
+    width: '100%', // Adjust width as needed
+    margin: 10,
+    height:100
+  },
+  text: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  button: {
+    backgroundColor: '#000',
+    borderRadius: 50, // Circular button
+    width: 80,
+    height: 80,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
