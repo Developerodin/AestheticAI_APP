@@ -3,6 +3,10 @@ import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet, TextInput ,S
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const { width, height } = Dimensions.get('window');
 import { useNavigation } from "@react-navigation/native";
+import Cart from '../../assets/Svgs/Cart.svg';
+import TiltArrow from '../../assets/Svgs/TiltArrow.svg';
+import Back from '../../assets/Svgs/BackWhite.svg';
+import Forward from '../../assets/Svgs/ForwardWhite.svg';
 
 const products = [
   {
@@ -101,19 +105,41 @@ export const Shop = () => {
             source={require('../../assets/shopBanner.png')}
             style={{ width: '100%',height: height * 0.7 }} 
           >
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 16,
+                
+                marginHorizontal: 20,
+                marginTop: height * 0.045,
+              }}
+            >
+              Deliver to
+            </Text>
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 20,
+                fontWeight: 'bold',
+                marginHorizontal: 20,
+              }}
+            >
+              Home 305001 
+            </Text>
             <TouchableOpacity
               style={{
                 position: 'absolute',
                 top: height * 0.05,
                 right: width * 0.05,
-                backgroundColor: '#fff',
+                
                 padding: 10,
-                borderRadius: 20,
+                
                 
               }}
               onPress={handleCart}
+              activeOpacity={0.8}
             >
-              <Icon name="shopping-bag" size={24} color="#000" />
+              <Cart height={27} width={27}/>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -128,6 +154,7 @@ export const Shop = () => {
                 paddingVertical: 20,
               }}
               onPress={handlePrescriptions}
+              activeOpacity={0.8}
             >
               <Text style={{ color: '#fff' }}>View Prescriptions</Text>
             </TouchableOpacity>
@@ -139,7 +166,8 @@ export const Shop = () => {
         
         padding: 20,
         backgroundColor: '#fff',
-        borderRadius: 40,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
       }}
     >
       <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 8 ,color:'#000'}}>
@@ -224,14 +252,14 @@ export const Shop = () => {
           width: '100%',
         }}
       >
-        <TouchableOpacity>
-          <Icon name="chevron-left" size={32} color="#000" />
+        <TouchableOpacity style={{backgroundColor:'#000',borderRadius: 30,borderWidth:1,padding:15}}>
+          <Back height={20} width={20} />
         </TouchableOpacity>
 
-        <Text style={{ fontSize: 16 }}>1/2</Text>
+        <Text style={{ fontSize: 16,color:'#000' }}>1/2</Text>
 
-        <TouchableOpacity>
-          <Icon name="chevron-right" size={32} color="#000" />
+        <TouchableOpacity style={{backgroundColor:'#000',borderRadius: 30,borderWidth:1,padding:15}}>
+          <Forward height={20} width={20} />
         </TouchableOpacity>
       </View>
     </View>
@@ -240,8 +268,8 @@ export const Shop = () => {
       {/* Header Section */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Shop your needs.</Text>
-         <TouchableOpacity style={{backgroundColor:'#fff',borderRadius: 30,borderWidth:1,padding:8}} onPress={handleMarketplace}>
-          <Icon name="arrow-forward" size={24} color="#000" />
+         <TouchableOpacity style={{backgroundColor:'#fff',borderRadius: 30,borderWidth:1,padding:15}} onPress={handleMarketplace} activeOpacity={0.8}>
+          <TiltArrow height={16} width={16} />
         </TouchableOpacity> 
       </View>
 
@@ -284,7 +312,7 @@ export const Shop = () => {
       />
 
       {/* Explore Collection Button */}
-      <TouchableOpacity style={styles.exploreButton}>
+      <TouchableOpacity style={styles.exploreButton} onPress={handleMarketplace} activeOpacity={0.8}>
         <Text style={styles.exploreText}>Explore Collection</Text>
       </TouchableOpacity>
     </View>
@@ -311,6 +339,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: '#000',
+   
   },
   searchSection: {
     flexDirection: 'row',
@@ -318,7 +347,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 26,
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingVertical: 2,
     marginBottom: 20,
     borderWidth: 1,
   },

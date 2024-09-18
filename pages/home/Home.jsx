@@ -17,6 +17,11 @@ import Qc1 from '../../assets/Svgs/quicka4.svg'
 import Qc2 from '../../assets/Svgs/quicka.svg'
 import Qc3 from '../../assets/Svgs/quicka2.svg'
 import Qc4 from '../../assets/Svgs/quicka3.svg'
+import Chat from '../../assets/Svgs/chat.svg'
+import Forward from '../../assets/Svgs/forwardIcon.svg'
+import Clock from '../../assets/Svgs/clock.svg'
+import Location from '../../assets/Svgs/location.svg'
+import Uparrow from '../../assets/Svgs/upArrow.svg'
 export const Home = () => {
   const navigation = useNavigation();
 
@@ -109,12 +114,8 @@ export const Home = () => {
             </View>
 
             <TouchableOpacity style={styles.chatIconContainer} onPress={handleChatPress} activeOpacity={0.8}>
-              <Image
-                source={require('../../assets/chat-icon.png')}
-                style={styles.chatIcon}
-                resizeMode="contain"
-                onPress={handleChatPress}
-              />
+            
+              <Chat width={30} height={30} />
 
               <View style={styles.notificationBadge}>
                 <Text style={styles.notificationText}>2</Text>
@@ -128,10 +129,8 @@ export const Home = () => {
               <View style={styles.headerContainer}>
                 <Text style={styles.headerText}>Upcoming Appointments</Text>
                 <TouchableOpacity style={styles.arrowButton} activeOpacity={0.8} onPress={handleAppointmentPress}>
-                  <Image
-                    source={require('../../assets/arrow.png')}
-                    style={styles.icon}
-                  />
+                 
+                  <Forward width={16} height={16} />
                 </TouchableOpacity>
               </View>
 
@@ -148,20 +147,14 @@ export const Home = () => {
 
                 <View style={styles.infoContainer}>
                   <View style={styles.row}>
-                    <Image
-                      source={require('../../assets/clock.png')}
-                      style={styles.icon}
-                    />
+                    <Clock width={18} height={18} />
                     <Text style={styles.infoText}>9:30</Text>
                   </View>
                   <View style={styles.row}>
-                    <Image
-                      source={require('../../assets/location.png')}
-                      style={styles.icon}
-                    />
+                    <Location width={20} height={24} />
                     <Text style={styles.infoText}>Online</Text>
                   </View>
-                </View>
+                </View> 
               </View>
             </View>
           </View>
@@ -299,7 +292,7 @@ export const Home = () => {
     style={{ borderRadius: 39, }}
   />
 </Svg>
-      <Image source={require('../../assets/up-arrow-icon.png')} style={styles.icon3} />
+      <Uparrow width={20} height={24} style={styles.icon3} />
       <Text style={styles.buttonText}>Go to Top</Text>
       </View>
     </TouchableOpacity>
@@ -385,7 +378,8 @@ const styles = StyleSheet.create({
   doctorImage: {
     width: 89,
     height: 76,
-    borderRadius: 10,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
     marginRight: 10,
   },
   infoContainer: {
@@ -450,12 +444,12 @@ const styles = StyleSheet.create({
   iconText1: {
     fontSize: 12,
     textAlign: 'center',
-    color: '#000',
+    color: '#000', 
     marginTop: 8,
   },
   arrowButton1: {
     backgroundColor: '#18BC9C',
-    borderRadius: 30,
+    borderRadius: 30,  
     paddingHorizontal: 20,
     paddingVertical: 20,
   },
@@ -664,12 +658,12 @@ const styles = StyleSheet.create({
     bottom: 0,
     borderRadius: 39.0,
   },
-  icon3: {
-    width: 20,
-    height: 20,
+   icon3: {
+    width: 22,
+    height: 22,
     marginBottom: 8,
     position: 'absolute',
-    top: 16,                
+    top: 14,                
     left: 40,
     
     

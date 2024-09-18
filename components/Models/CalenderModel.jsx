@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import Modal from 'react-native-modal';
 import { Calendar } from 'react-native-calendars';
+import Date from '../../assets/Svgs/Date.svg';
 
 const CalendarModal = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -87,10 +88,7 @@ const CalendarModal = () => {
 
       {/* Icon to open the modal */}
       <TouchableOpacity onPress={toggleModal}>
-        <Image
-          source={require('../../assets/calendar.png')}
-          style={styles.calendarIcon}
-        />
+       <Date height={30} width={30}  />
       </TouchableOpacity>
 
       {/* Doctor appointment details */}

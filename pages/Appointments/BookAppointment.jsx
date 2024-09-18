@@ -6,6 +6,7 @@ import SelectDropdown from 'react-native-select-dropdown';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Back from '../../assets/Svgs/BackIcon.svg';
 
 export const BookAppointment = () => {
   const navigation = useNavigation(); // Use useNavigation for navigating
@@ -26,10 +27,7 @@ export const BookAppointment = () => {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity style={styles.backButton}  onPress={handleBack} activeOpacity={0.8}>
-          <Image
-            source={require('../../assets/back_icon.png')}
-            style={styles.backIcon}
-          />
+          <Back height={16} width={16}  />
         </TouchableOpacity>
 
         <Text style={styles.headerText}>Book an Appointment</Text>
@@ -204,7 +202,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
 
     padding: 12,
-    borderRadius: 20,
+    borderRadius: 30,
     borderColor: '#000',
     borderWidth: 1,
   },

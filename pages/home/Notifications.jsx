@@ -8,6 +8,7 @@ import {
   FlatList,
 } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+import Back from '../../assets/Svgs/BackIcon.svg';
 
 
 
@@ -129,10 +130,7 @@ export const Notifications = () => {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity style={styles.backButton} onPress={handleBack} activeOpacity={0.8}>
-          <Image
-            source={require('../../assets/back_icon.png')}
-            style={styles.backIcon}
-          />
+          <Back height={16} width={16} style={styles.backIcon} />
         </TouchableOpacity>
 
         <Text style={styles.headerText}>Notifications & Messages</Text>
@@ -186,6 +184,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor: '#fff',
   },
   headerContainer: {
     flexDirection: 'row',
