@@ -105,6 +105,27 @@ export const Shop = () => {
             source={require('../../assets/shopBanner.png')}
             style={{ width: '100%',height: height * 0.7 }} 
           >
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 16,
+                
+                marginHorizontal: 20,
+                marginTop: height * 0.045,
+              }}
+            >
+              Deliver to
+            </Text>
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 20,
+                fontWeight: 'bold',
+                marginHorizontal: 20,
+              }}
+            >
+              Home 305001 
+            </Text>
             <TouchableOpacity
               style={{
                 position: 'absolute',
@@ -116,6 +137,7 @@ export const Shop = () => {
                 
               }}
               onPress={handleCart}
+              activeOpacity={0.8}
             >
               <Cart height={27} width={27}/>
             </TouchableOpacity>
@@ -132,6 +154,7 @@ export const Shop = () => {
                 paddingVertical: 20,
               }}
               onPress={handlePrescriptions}
+              activeOpacity={0.8}
             >
               <Text style={{ color: '#fff' }}>View Prescriptions</Text>
             </TouchableOpacity>
@@ -245,7 +268,7 @@ export const Shop = () => {
       {/* Header Section */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Shop your needs.</Text>
-         <TouchableOpacity style={{backgroundColor:'#fff',borderRadius: 30,borderWidth:1,padding:15}} onPress={handleMarketplace}>
+         <TouchableOpacity style={{backgroundColor:'#fff',borderRadius: 30,borderWidth:1,padding:15}} onPress={handleMarketplace} activeOpacity={0.8}>
           <TiltArrow height={16} width={16} />
         </TouchableOpacity> 
       </View>
@@ -289,7 +312,7 @@ export const Shop = () => {
       />
 
       {/* Explore Collection Button */}
-      <TouchableOpacity style={styles.exploreButton}>
+      <TouchableOpacity style={styles.exploreButton} onPress={handleMarketplace} activeOpacity={0.8}>
         <Text style={styles.exploreText}>Explore Collection</Text>
       </TouchableOpacity>
     </View>
@@ -316,6 +339,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: '#000',
+   
   },
   searchSection: {
     flexDirection: 'row',

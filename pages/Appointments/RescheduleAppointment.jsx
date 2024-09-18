@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image, TextInput } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Back from '../../assets/Svgs/BackIcon.svg';
 
 const RescheduleAppointment = () => {
   const navigation = useNavigation();
@@ -19,10 +20,7 @@ const RescheduleAppointment = () => {
     <ScrollView style={styles.container}>
       <View style={styles2.headerContainer}>
         <TouchableOpacity style={styles2.backButton}  onPress={handleBack} activeOpacity={0.8}>
-          <Image
-            source={require('../../assets/back_icon.png')}
-            style={styles2.backIcon}
-          />
+          <Back height={16} width={16}  />
         </TouchableOpacity>
 
         <Text style={styles2.headerText}>Reschedule Appointments</Text>
@@ -132,7 +130,7 @@ const styles2 = StyleSheet.create({
     position: 'absolute',
 
     padding: 12,
-    borderRadius: 20,
+    borderRadius: 30,
     borderColor: '#000',
     borderWidth: 1,
   },

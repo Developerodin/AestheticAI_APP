@@ -5,6 +5,7 @@ import AppointmentCard from '../../components/Cards/AppointmentCard';
 import AppointmentCard2  from '../../components/Cards/AppointmentCard2';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import CalendarModal from '../../components/Models/CalenderModel';
+import Back from '../../assets/Svgs/BackIcon.svg';
 export const Appointments = () => {
 
     const doctorImage = require('../../assets/doctorImage.png');  
@@ -33,21 +34,19 @@ export const Appointments = () => {
       <View style={styles.headerContainer}>
         <View style={{flexDirection:"row",alignItems:"center"}}>
         <TouchableOpacity style={styles.backButton}  onPress={handleBack} activeOpacity={0.8}>
-          <Image
-            source={require('../../assets/back_icon.png')}
-            style={styles.backIcon}
-          />
+          <Back height={16} width={16}  />
         </TouchableOpacity>
 
         <Text style={styles.headerText}>Appointments</Text>
         </View>
       
-        <View>
+        <View style={{marginTop:10}} >
         <CalendarModal/>
         </View>
        
       </View>
       <Text style={{marginVertical:25,fontSize:18,color:'#000'}}>Upcoming</Text>
+      <TouchableOpacity onPress={handleClick} activeOpacity={0.8}>
       <AppointmentCard
         doctorImage={doctorImage}
         doctorName="Dr. Anand Verma"
@@ -59,32 +58,41 @@ export const Appointments = () => {
         timeIcon={timeIcon}
         locationIcon={locationIcon}
         onPress={handleClick}
+        
       />
-        <AppointmentCard
-            doctorImage={doctorImage}
-            doctorName="Dr. Anand Verma"
-            specialization="Dermatologist"
-            time="9:30"
-            location="Online"
-            day="Sat"
-            date="2"
-            timeIcon={timeIcon}
-            locationIcon={locationIcon}
-            onPress={handleClick}
-        />
-        <AppointmentCard
-            doctorImage={doctorImage}
-            doctorName="Dr. Anand Verma"
-            specialization="Dermatologist"
-            time="9:30"
-            location="Online"
-            day="Sat"
-            date="2"
-            timeIcon={timeIcon}
-            locationIcon={locationIcon}
-            onPress={handleClick}
-        />
+    </TouchableOpacity>
+    <TouchableOpacity onPress={handleClick} activeOpacity={0.8}>
+      <AppointmentCard
+        doctorImage={doctorImage}
+        doctorName="Dr. Anand Verma"
+        specialization="Dermatologist"
+        time="9:30"
+        location="Online"
+        day="Sat"
+        date="2"
+        timeIcon={timeIcon}
+        locationIcon={locationIcon}
+        onPress={handleClick}
+        
+      />
+    </TouchableOpacity>
+    <TouchableOpacity onPress={handleClick} activeOpacity={0.4}>
+      <AppointmentCard
+        doctorImage={doctorImage}
+        doctorName="Dr. Anand Verma"
+        specialization="Dermatologist"
+        time="9:30"
+        location="Online"
+        day="Sat"
+        date="2"
+        timeIcon={timeIcon}
+        locationIcon={locationIcon}
+        onPress={handleClick}
+        
+      />
+    </TouchableOpacity>
         <Text style={{marginVertical:25,fontSize:18,color:'#000'}}>Post Appointments</Text>
+        <TouchableOpacity onPress={handleClick} activeOpacity={0.8}>
         <AppointmentCard2
             doctorImage={doctorImage}
             doctorName="Dr. Anand Verma"
@@ -93,6 +101,8 @@ export const Appointments = () => {
             date="2"
             onPress={handleClick}
         />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleClick} activeOpacity={0.8}>
         <AppointmentCard2
             doctorImage={doctorImage}
             doctorName="Dr. Anand Verma"
@@ -101,14 +111,17 @@ export const Appointments = () => {
             date="2"
             onPress={handleClick}
         />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleClick} activeOpacity={0.8}>
         <AppointmentCard2
             doctorImage={doctorImage}
             doctorName="Dr. Anand Verma"
             specialization="Dermatologist"
             day="Sat"
-            date="2" 
+            date="2"
             onPress={handleClick}
         />
+        </TouchableOpacity>
 
 
 <View style={[styles2.container,{marginBottom:120}]}>
@@ -117,7 +130,7 @@ export const Appointments = () => {
   <Text style={styles2.text}>Appointment</Text>
   </View>
       
-      <TouchableOpacity onPress={handleBookAppointmentsClick} style={styles2.button}>
+      <TouchableOpacity onPress={handleBookAppointmentsClick} style={styles2.button} activeOpacity={0.8}>
         <Icon name="add" size={24} color="#fff" />
       </TouchableOpacity>
     </View>
@@ -145,8 +158,8 @@ const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
 
-    padding: 12,
-    borderRadius: 20,
+    padding: 15,
+    borderRadius: 30,
     borderColor: '#000',
     borderWidth: 1,
   },

@@ -5,6 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 import PaymentSlider from '../../components/PaymentSlider/PaymentSlider';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get('window');
+import Back from '../../assets/Svgs/BackIcon.svg';
+import Percent from '../../assets/Svgs/Percent.svg';
 
 export const Cart = () => {
   const navigation = useNavigation();
@@ -52,18 +54,30 @@ export const Cart = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
         
-        <View style={styles.headerContainer}>
-        <TouchableOpacity style={styles.backButton}  onPress={handleBack} activeOpacity={0.8}>
-          <Icon name="keyboard-arrow-left" size={30} color="#000" />
-        </TouchableOpacity>
-        </View>
+        
     <View style={styles.container}>
+    <View style={styles.headerContainer}>
+        <TouchableOpacity style={styles.backButton}  onPress={handleBack} activeOpacity={0.8}>
+          <Back height={20} width={20} />
+        </TouchableOpacity>
+        <View style={{ }}>
+        <Text style={{fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 10,
+    color: '#000',
+    }}>Deliver to</Text>
+        <Text style={{fontSize: 24,
+    fontWeight: 'bold',
+    color: '#000',
+    marginLeft: 10,}}>Home 305001</Text>
+    </View>
+        </View>
       {/* Header */}
       <Text style={styles.headerText}>My Cart</Text>
 
       {/* Festive Offer Section */}
       <View style={styles.offerContainer}>
-        <Icon name="percent" size={24} color="#fff" style={styles.offerIcon} />
+        <Percent style={styles.offerIcon} />
         <Text style={styles.offerText}>
           ₹1000 saved! <Text style={styles.subOfferText}>with Festive offer</Text>
         </Text>
@@ -269,12 +283,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 20,
-        marginLeft: 20,
+        
         marginTop: 20,
     },
     backButton: {
-        padding: 5,
-        borderRadius: 20,
+        padding: 12,
+        borderRadius: 30,
         borderColor: '#000',
         borderWidth: 1,
     },
@@ -284,18 +298,20 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#000',
     marginLeft: 15,
+    marginTop: 20,
   },
   offerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#d1f2eb',
-    borderRadius: 18,
-    padding: 12,
+    borderRadius: 20,
+    padding: 8,
     marginBottom: 20,
     borderWidth: 1,
   },
   offerIcon: {
     marginRight: 10,
+    marginLeft: 10,
   },
   offerText: {
     fontSize: 16,
@@ -327,17 +343,18 @@ const styles = StyleSheet.create({
   },
   productDetails: {
     fontSize: 14,
-    color: '#888',
+    color: '#727272',
     marginBottom: 5,
   },
   editText: {
     fontSize: 14,
-    color: '#007bff',
+    color: '#727272',
     
   },
   productControls: {
     flexDirection: 'row',
     alignItems: 'center',
+    
     
     
   },
@@ -379,7 +396,7 @@ const styles = StyleSheet.create({
   addButton: {
     borderWidth: 1,
     borderColor: '#000',
-    borderRadius: 50,
+    borderRadius: 14,
     padding: 5,
   },
   addMoreText: {
