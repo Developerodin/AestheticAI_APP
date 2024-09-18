@@ -9,6 +9,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Keyboard,
+  StatusBar
 } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -124,6 +125,12 @@ export const Login = () => {
   });
   return (
     <View style={{flex: 1}}>
+      {/* <StatusBar 
+         translucent={true}
+         backgroundColor="transparent"
+         barStyle="dark-content" 
+      /> */}
+      <StatusBar hidden={true} />
       {/* Top Image (Image 1) */}
       {active ? (
         <View style={styles.container}>
@@ -189,7 +196,7 @@ export const Login = () => {
           </View>
         </View>
       ) : (
-        <View style={{flex: 1}}>
+        <View style={{flex: 1,backgroundColor:"#fff"}}>
           <View style={styles.formContainer2}>
           <Animated.View style={[animatedTextStyle]}>
           <Text style={{ fontSize: 36, color: 'black', fontWeight: 'bold' }}>

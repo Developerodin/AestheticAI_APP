@@ -8,6 +8,7 @@ import {
   ScrollView,
   FlatList,
   Dimensions,
+  StatusBar
 } from 'react-native';
 import Svg, {  Defs, LinearGradient, Stop,Rect } from 'react-native-svg';
 import { GradientText } from '../../components/GradientText/GradientText';
@@ -92,6 +93,11 @@ export const Home = () => {
     <>
       <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false}>
         <View style={{backgroundColor: '#fff',flex:1}}>
+        <StatusBar 
+        backgroundColor="#fff" // Set the status bar background color
+        barStyle="dark-content" 
+        hidden={false}  // Set the text and icon color (light-content for white text)
+      />
           <View style={styles.container1}>
             <View style={styles.logoContainer}>
               <Image
