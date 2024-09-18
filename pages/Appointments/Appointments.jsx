@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import AppointmentCard from '../../components/Cards/AppointmentCard';
 import AppointmentCard2  from '../../components/Cards/AppointmentCard2';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import CalendarModal from '../../components/Models/CalenderModel';
 export const Appointments = () => {
 
     const doctorImage = require('../../assets/doctorImage.png');  
@@ -30,6 +31,7 @@ export const Appointments = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.container}>
       <View style={styles.headerContainer}>
+        <View style={{flexDirection:"row",alignItems:"center"}}>
         <TouchableOpacity style={styles.backButton}  onPress={handleBack} activeOpacity={0.8}>
           <Image
             source={require('../../assets/back_icon.png')}
@@ -38,12 +40,12 @@ export const Appointments = () => {
         </TouchableOpacity>
 
         <Text style={styles.headerText}>Appointments</Text>
-        <TouchableOpacity onPress={handleBookAppointmentsClick} style={styles.calendarButton}>
-          <Image
-            source={require('../../assets/calendar.png')}
-            style={styles.calendarIcon}
-          />
-        </TouchableOpacity>
+        </View>
+      
+        <View>
+        <CalendarModal/>
+        </View>
+       
       </View>
       <Text style={{marginVertical:25,fontSize:18,color:'#000'}}>Upcoming</Text>
       <AppointmentCard
@@ -109,7 +111,7 @@ export const Appointments = () => {
         />
 
 
-<View style={styles2.container}>
+<View style={[styles2.container,{marginBottom:120}]}>
   <View>
   <Text style={styles2.text}>Book a new</Text>
   <Text style={styles2.text}>Appointment</Text>
@@ -128,12 +130,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#f7f7f7',
-    marginBottom: 120,
+    backgroundColor: '#fff',
+   
   },
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent:"space-between",
     textAlign: 'center',
     marginVertical: 20,
     position: 'relative',
