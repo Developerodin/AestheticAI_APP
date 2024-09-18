@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Image, StyleSheet ,ImageBackground ,Dimensions} from 'react-native';
+import { View, Text,SafeAreaView, TouchableOpacity, ScrollView, Image, StyleSheet ,ImageBackground ,Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from "@react-navigation/native";
+import PaymentSlider from '../../components/PaymentSlider/PaymentSlider';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get('window');
 
 export const Cart = () => {
@@ -242,6 +244,15 @@ export const Cart = () => {
 </TouchableOpacity>
 </View>
 
+
+<View style={{marginTop:30,marginBottom:50}}>
+<GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
+        <PaymentSlider />
+      </SafeAreaView>
+    </GestureHandlerRootView>
+
+</View>
       
     </View>
     </ScrollView>
@@ -442,7 +453,7 @@ const styles = StyleSheet.create({
   },
   billcontainer: {
     padding: 16,
-    backgroundColor: '#f7f7f7',
+    backgroundColor: '#fff',
   },
   billheaderText: {
     fontSize: 24,
