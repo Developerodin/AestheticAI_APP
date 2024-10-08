@@ -5,6 +5,9 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image,Switch, Per
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Back from '../../assets/Svgs/BackIcon.svg';
+import dotenv from 'dotenv';
+dotenv.config();
+
 import {
   createAgoraRtcEngine,
   ChannelProfileType,
@@ -414,8 +417,8 @@ const AppointmentsDetails = () => {
                   vendor: 1,
                   region: 1,
                   bucket: 'agora-rn',
-                  accessKey: 'AKIA4MTWLSANRGY4EQUE',
-                  secretKey: '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',
+                  accessKey: process.env.AWS_ACCESS_KEY_ID,
+                  secretKey: process.env.AWS_SECRET_ACCESS_KEY,
                 },
               },
             },
